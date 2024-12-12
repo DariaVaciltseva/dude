@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Эх, прокачу!</title>
+</head>
+<style>
+    body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 150px;
+    margin-left: 150px;
+}
+header {
+    background-color: rgba(0, 0, 0, 0.719);
+    color: aliceblue;
+    display: flex;
+    gap: 700px;
+}
+header a {
+    text-decoration: none;
+    color: aliceblue;
+    padding: 21,440px; 
+    margin: 20px;
+}   
+.banner {
+    position: relative;
+    height: 500px;
+}
+.banner p {
+    font-size: 45px;
+    position: relative;
+    margin: 150px 150px 50px 150px;
+}
+.banner a {
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: black;
+    padding: 15px;
+    color: aliceblue;
+    font-size: 25px;
+    position: relative;
+    margin-left: 150px;
+}
+.banner a:hover {
+    background-color: rgb(43, 43, 43);     
+}
+
+
+.container{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(223, 223, 223);
+    box-shadow: 20px;
+    width: 400px;
+    margin: 200px;
+}
+
+input {
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+}
+.answer {
+    color: brown;
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+    margin: 10px;
+    color: aliceblue;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0);
+}
+button:hover {
+    background-color: rgb(43, 43, 43);     
+}
+
+
+</style>
+<body>
+    <header>
+        <p style="margin-left: 50px;">Эх, прокачу!</p>
+        <p>
+            <a href="">Авторизация</a>
+            <a href="">Регистрация</a>
+            <a href="">Заявки</a>
+            <a href="">Панель администратора</a>
+        </p>
+    </header>
+
+    <form id="regist" class="container">
+        <p>Регистрация</p>
+        <hr>
+        <label for="">Полное имя</label>
+        <br>
+        <input type="name" id="name_" placeholder="Иванов Иван Иванович ">
+        <p class="answer" id="mess_name"></p>
+
+        <button type="submit">Регистрация</button>
+    </form>
+
+    <script>
+        document.getElementById('regist').addEventListener('submit', function(event){
+            event.preventDefault();
+
+            const name = document.getElementById('name_').value;
+
+            const mess_name = document.getElementById('mess_name');
+
+            const canon_name =/^[А-Яа-яЁё\s]+$/;
+
+            if (canon_name.test(name)){
+                mess_name.textContent = "";
+            }
+            else {
+                mess_name.textContent = "Неверный формат имени";
+            }
+        })
+    </script>
+</body>
+</html>
